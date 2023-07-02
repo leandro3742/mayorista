@@ -3,14 +3,36 @@ import Home from './pages/Home'
 import Layout from './pages/Layout';
 import List from './pages/List';
 import Cart from './pages/Cart';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useEffect, useState } from 'react';
 function App() {
+  const [isLogged, setIsLogged] = useState(false)
+  const [cart, setCart] = useState<any[]>([])
+
+  useEffect(() => {
+    if (sessionStorage.getItem('user_id'))
+      setIsLogged(true)
+  }, [])
+
   return (
     <>
       <BrowserRouter>
-        <Layout>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
+        <Layout isLogged={isLogged} setIsLogged={setIsLogged}>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home isLogged={setIsLogged} />} />
             <Route path='/list' element={<List />} />
             <Route path='/cart' element={<Cart />} />
           </Routes>

@@ -1,14 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/Home.css';
 import { useNavigate } from 'react-router-dom';
+import { fetchLogin } from '../api/auth';
+import { toast } from 'react-toastify';
 
-const Home = () => {
+const Home = ({ isLogged }: { isLogged: any }) => {
+
   const navigate = useNavigate();
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
+
+  useEffect(() => {
+    if (sessionStorage.getItem('user_id'))
+      navigate('/list')
+  }, [])
+
   const validateUser = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate('/list')
+    fetchLogin(user, password)
+      .then(data => {
+        if (data.status === 200) {
+          sessionStorage.setItem('user_id', data.data._id.toString())
+          isLogged(true)
+          toast.success(data.message)
+          navigate('/list')
+        }
+        else if (data.status === 401)
+          toast.error(data.message)
+
+      })
   }
 
   return (

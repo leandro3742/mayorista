@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 nav{
-  height: 7vh;
+  height: 8vh;
   background-color: #000;
   color: #fff;
   padding: 1rem;
@@ -12,8 +12,21 @@ nav{
   align-items: center;
 }
 
+.close-session {
+    margin-left: 25px;  background-color: #b94747;
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
+.close-session:hover {
+  transition: 0.4s;
+  background-color: #EC9090;
+}
 #light, #dark {
-  height: 93vh;
+  height: 92vh;
   overflow-y: auto;
 }
 #light {
@@ -55,10 +68,14 @@ input:focus {
 }
 
 @media screen and (max-width: 768px) {
+  .close-session {
+    margin-left: 25px;
+  }
+  
   #light {
-    height: calc(93vh - 56px);
+    height: calc(92vh - 56px);
   }
   #dark {
-    height: calc(93vh - 56px);  
+    height: calc(92vh - 56px);  
   }
 }

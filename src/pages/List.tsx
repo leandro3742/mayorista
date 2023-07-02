@@ -3,10 +3,15 @@ import image from "../assets/images/cafe_americano.jpeg"
 import '../styles/List.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
+import { toast } from "react-toastify"
 const List = () => {
   const search = (e: any) => {
     e.preventDefault();
     alert('Buscando...')
+  }
+
+  const addToCart = () => {
+    toast.success('Producto agregado al carrito')
   }
   return (
     <>
@@ -16,7 +21,6 @@ const List = () => {
       >
         <input />
         <FontAwesomeIcon type='submit' onClick={search} icon={faMagnifyingGlass} style={{ cursor: 'pointer' }} />
-
       </form>
       <div className="mt-3 flex flex-wrap justify-center">
         {mock.map((item, index) => (
@@ -35,7 +39,7 @@ const List = () => {
                 </section>
               </section>
               <div className="flex justify-end">
-                <button className="btn-primary">Agregar</button>
+                <button className="btn-primary" onClick={addToCart}>Agregar</button>
               </div>
             </section>
           </div>
