@@ -4,20 +4,21 @@ import '../styles/Counter.css'
 
 interface props {
   value: number
-  setValue: (value: number) => void
+  id: number
+  setValue: ({ quantity, itemId }: { quantity: number, itemId: number }) => void
 }
 const Counter = (props: props) => {
-  const { value, setValue } = props
+  const { value, setValue, id } = props
   return (
     <div id="counter">
-      <FontAwesomeIcon color={value > 1 ? "#5686E1" : "#D9D9D9"} icon={faMinus} onClick={() => setValue(value > 0 ? value - 1 : value)} />
+      <FontAwesomeIcon color={value > 1 ? "#5686E1" : "#D9D9D9"} icon={faMinus} onClick={() => value > 1 ? setValue({ quantity: value - 1, itemId: id }) : () => { }} />
       <input
         className="m-auto text-center"
         value={value}
         type="number"
-        onChange={(e: any) => setValue(e.target.value)}
+        onChange={(e: any) => setValue({ quantity: e.target.value, itemId: id })}
       />
-      <FontAwesomeIcon color="#5686E1" icon={faPlus} onClick={() => setValue(value + 1)} />
+      <FontAwesomeIcon color="#5686E1" icon={faPlus} onClick={() => setValue({ quantity: value + 1, itemId: id })} />
     </div>
   )
 }

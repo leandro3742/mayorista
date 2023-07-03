@@ -4,13 +4,19 @@ import '../styles/List.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 import { toast } from "react-toastify"
+import useCartStore from "../state/cart.state"
+import { Product } from "../interfaces/product.interface"
+
 const List = () => {
+  const { addItem } = useCartStore();
+
   const search = (e: any) => {
     e.preventDefault();
     alert('Buscando...')
   }
 
-  const addToCart = () => {
+  const addToCart = (item: Product) => {
+    addItem({ ...item, quantity: 1 })
     toast.success('Producto agregado al carrito')
   }
   return (
@@ -23,7 +29,7 @@ const List = () => {
         <FontAwesomeIcon type='submit' onClick={search} icon={faMagnifyingGlass} style={{ cursor: 'pointer' }} />
       </form>
       <div className="mt-3 flex flex-wrap justify-center">
-        {mock.map((item, index) => (
+        {mock.map((item: Product, index) => (
           <div key={index} style={{ backgroundColor: '#D9D9D9' }} className="card-product flex flex-col items-center">
             <img src={image} alt="cafe" />
             <section>
@@ -39,7 +45,7 @@ const List = () => {
                 </section>
               </section>
               <div className="flex justify-end">
-                <button className="btn-primary" onClick={addToCart}>Agregar</button>
+                <button className="btn-primary" onClick={() => addToCart(item)}>Agregar</button>
               </div>
             </section>
           </div>
