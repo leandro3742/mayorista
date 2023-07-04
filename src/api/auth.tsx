@@ -1,9 +1,12 @@
+import { clients } from '../mock/clients'
+
 interface AuthInterface {
   status: number,
   message: string,
   data: {
-    _id: number,
+    id: number,
     name: string,
+    role: string
   }
 }
 
@@ -17,8 +20,9 @@ export const fetchLogin = async (user: string, password: string): Promise<AuthIn
   // })
   // const data = await response.json()
   // return data
-  if (user !== 'admin' || password !== 'admin')
-    return { status: 401, message: 'Usuario o contraseña incorrectos', data: { _id: 0, name: '' } }
+  const clientElem = clients.find((element) => element.email === user && element.password === password)
+  if (!clientElem)
+    return { status: 401, message: 'Usuario o contraseña incorrectos', data: { id: 0, name: '', role: '' } }
 
-  return { status: 200, message: `Bienvenido ${user}`, data: { _id: 1, name: user } }
+  return { status: 200, message: `Bienvenido ${user}`, data: { id: clientElem.id, name: clientElem.name, role: clientElem.role } }
 }

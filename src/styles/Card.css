@@ -1,0 +1,33 @@
+
+.card-product{
+  margin: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+}
+.card-product img{
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-product > section{
+  width: 100%;
+  padding: 10px;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-buttons > button, .card-buttons > a{
+  margin-top: 20px;
+  font-size: large;
+  padding: 5px 20px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}

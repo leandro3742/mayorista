@@ -1,24 +1,19 @@
 import mock from "../mock/components"
-import image from "../assets/images/cafe_americano.jpeg"
 import '../styles/List.css'
+import '../styles/Card.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
-import { toast } from "react-toastify"
-import useCartStore from "../state/cart.state"
 import { Product } from "../interfaces/product.interface"
+import CardClient from "../components/CardClient"
+import CardAdmin from "../components/CardAdmin"
 
 const List = () => {
-  const { addItem } = useCartStore();
 
   const search = (e: any) => {
     e.preventDefault();
     alert('Buscando...')
   }
 
-  const addToCart = (item: Product) => {
-    addItem({ ...item, quantity: 1 })
-    toast.success('Producto agregado al carrito')
-  }
   return (
     <>
       <form
@@ -29,27 +24,12 @@ const List = () => {
         <FontAwesomeIcon type='submit' onClick={search} icon={faMagnifyingGlass} style={{ cursor: 'pointer' }} />
       </form>
       <div className="mt-3 flex flex-wrap justify-center">
-        {mock.map((item: Product, index) => (
-          <div key={index} style={{ backgroundColor: '#D9D9D9' }} className="card-product flex flex-col items-center">
-            <img src={image} alt="cafe" />
-            <section>
-              <h1 className="text-center text-3xl">{item.name}</h1>
-              <section className="flex flex-col items-start">
-                <section className="flex items-center">
-                  <p>Precio: </p>
-                  <p className="text-xl"> ${item.price}</p>
-                </section>
-                <section className="flex items-center">
-                  <p>Stock:</p>
-                  <p className="text-xl">{item.stock}</p>
-                </section>
-              </section>
-              <div className="flex justify-end">
-                <button className="btn-primary" onClick={() => addToCart(item)}>Agregar</button>
-              </div>
-            </section>
-          </div>
-        ))}
+        {mock.map((item: Product, index) => {
+          if (sessionStorage.getItem('role') === 'client')
+            return <CardClient item={item} key={index} />
+          else if (sessionStorage.getItem('role') === 'admin')
+            return <CardAdmin item={item} key={index} />
+        })}
       </div>
     </>
   )

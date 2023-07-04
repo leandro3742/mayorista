@@ -12,7 +12,7 @@ const Home = ({ isLogged }: { isLogged: any }) => {
 
   useEffect(() => {
     if (sessionStorage.getItem('user_id'))
-      navigate('/list')
+      navigate('/list-products')
   }, [])
 
   const validateUser = (e: React.FormEvent<HTMLFormElement>) => {
@@ -20,10 +20,11 @@ const Home = ({ isLogged }: { isLogged: any }) => {
     fetchLogin(user, password)
       .then(data => {
         if (data.status === 200) {
-          sessionStorage.setItem('user_id', data.data._id.toString())
+          sessionStorage.setItem('user_id', data.data.id.toString())
+          sessionStorage.setItem('role', data.data.role)
           isLogged(true)
           toast.success(data.message)
-          navigate('/list')
+          navigate('/list-products')
         }
         else if (data.status === 401)
           toast.error(data.message)

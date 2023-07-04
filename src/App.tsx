@@ -8,7 +8,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
 function App() {
   const [isLogged, setIsLogged] = useState(false)
-  const [cart, setCart] = useState<any[]>([])
 
   useEffect(() => {
     if (sessionStorage.getItem('user_id'))
@@ -33,7 +32,9 @@ function App() {
         <Layout isLogged={isLogged} setIsLogged={setIsLogged}>
           <Routes>
             <Route path="/" element={<Home isLogged={setIsLogged} />} />
-            <Route path='/list' element={<List />} />
+            {/* PRODUCTS ROUTES */}
+
+            <Route path='/list-products' element={<List />} />
             <Route path='/cart' element={<Cart />} />
           </Routes>
         </Layout>
