@@ -1,5 +1,7 @@
+import { Product } from "../interfaces/product.interface";
+
 // Create a mock product list
-const mock = [
+const mock: Array<Product> = [
   {
     id: 1,
     name: 'Cafe Americano',
@@ -26,7 +28,7 @@ const mock = [
     stock: 10,
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZxZ1f4PRbYSLHF1Ksdp6yPENYL5KvXjLs-Q&usqp=CAU',
     category: 'Cafe'
-  }
+  },
 ]
 
 export default mock;

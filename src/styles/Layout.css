@@ -54,14 +54,14 @@ nav{
   border-radius: 0.5rem;
   cursor: pointer;
 }
-input {
+input, textarea {
   border: none;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   margin-right: 1rem;  
 }
 
-input:focus {
+input:focus, textarea:focus {
   outline: none;
   border: #5686E1 solid 2px;
 }

@@ -1,19 +1,11 @@
 import { Link } from "react-router-dom";
 import { Product } from "../interfaces/product.interface"
-import useCartStore from "../state/cart.state";
-import { toast } from "react-toastify"
 interface Props {
   item: Product
 }
 
 const CardAdmin = (props: Props) => {
   const { item } = props
-  const { addItem } = useCartStore();
-
-  const addToCart = (item: Product) => {
-    addItem({ ...item, quantity: 1 })
-    toast.success('Producto agregado al carrito')
-  }
 
   return (
     <div style={{ backgroundColor: '#D9D9D9' }} className="card-product flex flex-col items-center">
