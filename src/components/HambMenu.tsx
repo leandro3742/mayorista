@@ -84,7 +84,7 @@ const HambMenu = ({ removeSession }: { removeSession: any }) => {
   const [openMenu, setOpenMenu] = useState(false)
   const options = {
     Ventas: [
-      { name: 'Ultimos pedidos', url: 'sales', icon: faClipboardList },
+      { name: 'Historial de pedidos', url: 'sales', icon: faClipboardList },
       { name: 'Historial de ventas', url: 'history-sales', icon: faSquarePollVertical }
     ],
     Productos: [

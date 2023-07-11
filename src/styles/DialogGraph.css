@@ -1,0 +1,35 @@
+#container-dialog-graph {
+  position: absolute;
+  width: 100vw;
+  height: calc(100vh - 56px);
+  top: 0;
+  background-color: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#dialog-graph {
+  width: 80vw;
+  background-color: #535353;
+  color: white;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #fff;
+  box-shadow: 0 10px 15px -3px rgba(104, 102, 102, 0.65);;
+}
+
+.close-dialog {
+background-color: #c9c9c9;
+color: black;
+}
+.disabledComp {
+  background-color: red;
+  opacity: 0.5;
+  pointer-events: none;
+}

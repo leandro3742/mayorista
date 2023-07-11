@@ -1,0 +1,56 @@
+.card-sales{
+  background-color: #d9d9d9;
+}
+
+.card-sales > header{
+  width: auto;
+  background-color: rgb(123, 189, 180);
+  border-radius: 10px 0 10px 0;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card-sales .button-sales {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #858585;
+}
+
+.generatePDF {
+  margin: auto;
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgb(123, 189, 180);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* TABLE STYLES */
+.container-dialog{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-products{
+  border-radius: 5px;
+}
+.table-products > thead{
+  text-align: center;
+  background-color: rgb(123, 189, 180);
+}
+.isPair {
+  color: black;
+}
+.isOdd {
+  background-color: rgb(123, 189, 180);
+  color: black;
+}
+th, td {
+  padding: 0 15px ;
+}

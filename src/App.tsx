@@ -9,6 +9,8 @@ import { useEffect, useState } from 'react';
 import CreateProduct from './pages/CreateProduct';
 import UpdateProduct from './pages/UpdateProduct';
 import CreateCsv from './pages/CreateCsv';
+import Sales from './pages/Sales';
+import HistorySales from './pages/HistorySales';
 function App() {
   const [isLogged, setIsLogged] = useState(false)
 
@@ -41,6 +43,8 @@ function App() {
             <Route path='/add-product' element={<CreateProduct />} />
             <Route path='/update/:id' element={<UpdateProduct />} />
             <Route path='/create-csv' element={<CreateCsv />} />
+            <Route path='/sales' element={<Sales />} />
+            <Route path='/history-sales' element={<HistorySales />} />
           </Routes>
         </Layout>
       </BrowserRouter>

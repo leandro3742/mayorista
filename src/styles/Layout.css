@@ -37,6 +37,14 @@ nav{
   color: white;
 }
 
+.btn {
+  background-color: #5686E1;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
 .btn-primary{
   background-color: #5686E1;
   color: #fff;
@@ -54,14 +62,15 @@ nav{
   border-radius: 0.5rem;
   cursor: pointer;
 }
-input, textarea {
+input, textarea, select, option {
   border: none;
+  border: transparent solid 2px;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   margin-right: 1rem;  
 }
 
-input:focus, textarea:focus {
+input:focus, textarea:focus, select:focus, option:focus {
   outline: none;
   border: #5686E1 solid 2px;
 }
