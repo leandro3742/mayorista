@@ -176,7 +176,7 @@ const Sales = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {openModal.map((product, index) => (
+                  {openModal.map((product: any, index: number) => (
                     <tr key={index} className={`${index % 2 === 0 ? 'isPair' : 'isOdd'}`}>
                       <td>{product.name}</td>
                       <td className='text-center'>{product.quantity}</td>

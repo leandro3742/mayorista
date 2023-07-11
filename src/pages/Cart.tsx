@@ -1,4 +1,4 @@
-import mock from "../mock/components"
+// import mock from "../mock/components"
 import '../styles/Cart.css'
 import image from "../assets/images/cafe_americano.jpeg"
 import Counter from "../components/Counter"
@@ -6,15 +6,15 @@ import { useEffect, useState } from "react"
 import { faTrash, faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import useCartStore from "../state/cart.state"
-import { Product } from "../interfaces/product.interface"
-import { CartItem } from "../interfaces/cartItem.interface"
+// import { Product } from "../interfaces/product.interface"
+// import { CartItem } from "../interfaces/cartItem.interface"
 
 const Cart = () => {
   const { cart, removeItem, editItem } = useCartStore()
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-  const [value, setValue] = useState(1)
+  // const [value, setValue] = useState(1)
   const [hovered, setHovered] = useState(-1)
-  const [cartParse, setCartParse] = useState<Array<CartItem>>([])
+  // const [cartParse, setCartParse] = useState<Array<CartItem>>([])
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth)

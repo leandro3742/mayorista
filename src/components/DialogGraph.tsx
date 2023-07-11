@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import '../styles/DialogGraph.css'
 interface props {
   open: boolean
@@ -13,7 +12,7 @@ interface props {
 }
 const DialogGraph = (props: props) => {
   const { open, setOpen, options, setOptions } = props
-  const [generate, setGenerate] = useState(false)
+  // const [generate, setGenerate] = useState(false)
 
   if (open)
     return (
@@ -101,7 +100,7 @@ const DialogGraph = (props: props) => {
             <button className="btn close-dialog mx-5" onClick={() => setOpen(false)}>Cancelar</button>
 
             <button
-              className={`btn mx-5 ${!generate ? "disabledComp" : ''}`}
+              // className={`btn mx-5 ${!generate ? "disabledComp" : ''}`}
               onClick={() => setOpen(false)}
             >
               Generar

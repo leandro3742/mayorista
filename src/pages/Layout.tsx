@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from "react"
+import { ReactNode, createContext } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import '../styles/Layout.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,8 +10,8 @@ const ThemeContext = createContext('light');
 
 const Layout = ({ children, isLogged, setIsLogged }: { children: ReactNode, isLogged: boolean, setIsLogged: any }) => {
   const navigate = useNavigate();
-  const [theme, setTheme] = useState('light');
-
+  // const [theme, setTheme] = useState('light');
+  const theme = 'light'
   // const toggleTheme = () => {
   //   setTheme(theme === 'light' ? 'dark' : 'light');
   // };

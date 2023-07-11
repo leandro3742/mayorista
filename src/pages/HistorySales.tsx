@@ -12,7 +12,18 @@ const HistorySales = () => {
         <FontAwesomeIcon icon={faFilter} />
         <span>Filtros</span>
       </button>
-      <DialogGraph open={openDialog} setOpen={setOpenDialog} />
+      <DialogGraph
+        open={openDialog}
+        setOpen={setOpenDialog}
+        options={{
+          type: "barras",
+          data: '',
+          dateFrom: '',
+          dateTo: ''
+        }}
+        setOptions={() => { }}
+
+      />
       <Graph />
     </div>
   )

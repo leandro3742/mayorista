@@ -10,7 +10,6 @@ import notImage from '../assets/notImage.jpeg'
 const UpdateProduct = () => {
   const { id } = useParams()
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [imagePreview, setImagePreview] = useState<string | undefined>(undefined);
   const [component, setComponent] = useState({} as Product)
 
   const getComponent = async () => {
@@ -78,7 +77,7 @@ const UpdateProduct = () => {
             </div>
             <img src={component.image ? component.image : notImage} className="fluid" style={{ maxHeight: '200px' }} />
           </figure>
-          <button type='button' className="btn-primary mt-4" onClick={handleButtonClick}>{imagePreview ? 'Editar' : 'Agregar'} imagen</button>
+          <button type='button' className="btn-primary mt-4" onClick={handleButtonClick}>Agregar imagen</button>
           <input
             name="productName"
             type="text"
